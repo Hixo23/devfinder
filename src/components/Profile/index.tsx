@@ -19,9 +19,9 @@ export const Profile = ({avatar_url, blog, created_at, bio, company, followers, 
           />
           <div className="flex flex-col md:flex-row w-full justify-between">
             <h2
-              className={`ml-2 ${themeIsDark ? 'text-white' : 'text-gray-700'}`}
+              className={`ml-2 text-blue-500`}
             >
-              @{login || 'no data'}
+             <a target='_blank' href={`https://github.com/${login}`}>@{login || 'no data'}</a>
             </h2>
             <p
               className={`${
