@@ -10,7 +10,7 @@ export const Header = ({ getData }: Props) => {
     const [username, setUsername] = useState<string>('')
 
     return (
-        <header className="flex w-screen flex-col h-24 justify-center">
+        <header className="flex w-screen flex-col h-24 justify-center mb-24">
             <div className="flex justify-around items-center pb-12 mt-16 gap-4">
             <h1 className={`text-3xl ${themeIsDark ? 'text-white' : 'text-black'}`}>Devfinder</h1>
             <button onClick={() => setThemeIsDark(!themeIsDark)} className={`${themeIsDark ? 'text-white' : 'text-black'} text-3xl`}>{themeIsDark ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>}</button>
