@@ -42,7 +42,7 @@ export const Profile = ({avatar_url, blog, created_at, bio, company, followers, 
           </p>
           <div
             className={`md:w-96 md:-ml-2 py-2 mx-auto ${
-              themeIsDark ? 'bg-slate-800' : 'bg-gray-400'
+              themeIsDark ? 'bg-slate-800' : 'bg-gray-300'
             } md:h-28 mt-12 rounded-xl flex justify-between px-4 items-center`}
           >
             <div
