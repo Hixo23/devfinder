@@ -85,7 +85,7 @@ export const Profile = ({avatar_url, blog, created_at, bio, company, followers, 
               }`}
             >
               <i className={`fa-solid fa-link`}></i>
-              <p>{blog || 'No Available'}</p>
+              <a href={blog || ""}>{blog || 'No Available'}</a>
             </div>
             <div
               className={`flex gap-2 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
