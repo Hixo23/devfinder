@@ -15,8 +15,11 @@ function App() {
       },
       method: 'GET'
     })
+    
+    if(response.status === 404) setUser(null)
 
     if (response.status !== 200) return
+
 
     const json = await response.json()
 
