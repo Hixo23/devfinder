@@ -30,19 +30,20 @@ export const Header = ({ getData }: Props) => {
           )}
         </button>
       </div>
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center gap-2 relative items-center">
         <input
          onKeyDown={handleEnter}
           onChange={(e) => setUsername(e.target.value)}
           value={username}
-          className={`w-[60%] h-10 rounded-xl p-4 md:outline-none ${
+          className={`w-[60%] h-10 rounded-xl px-10 py-4 md:outline-none ${
             themeIsDark ? 'bg-slate-700 text-white' : 'bg-gray-300'
           }`}
           type="text"
         />
+        <i className={`fa-solid fa-magnifying-glass absolute left-64 px-2 ${themeIsDark ? 'text-gray-200' : 'text-gray-800'}`}></i>
         <button
           onClick={() => getData(username)}
-          className="bg-blue-500 px-2 rounded-lg text-white"
+          className="bg-blue-500 p-2 rounded-lg text-white"
         >
           Search
         </button>
