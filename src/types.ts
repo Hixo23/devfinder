@@ -1,11 +1,8 @@
 export type User = {
   login?: string
   avatar_url?: string
-  name?: string | null
   company?: string | null
   location?: string | null
-  email?: string | null
-  hireable?: string | null
   bio?: string | null
   twitter_username?: string | null
   blog: string | null
@@ -14,3 +11,4 @@ export type User = {
   following?: number
   created_at: string
 }
+
