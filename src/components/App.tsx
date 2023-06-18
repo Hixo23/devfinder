@@ -36,7 +36,7 @@ function App() {
       >
         <Header getData={getData} />
         {error ? (
-          <p className='text-4xl text-white text-center'>User not found!</p>
+          <p className={`text-4xl text-center ${themeIsDark ? 'text-white' : 'text-gray-700'}`}>User not found!</p>
         ) : (
           <>
           {user !== null && (
