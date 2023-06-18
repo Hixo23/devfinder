@@ -15,7 +15,7 @@ function App() {
       },
       method: 'GET'
     })
-    
+
     if(response.status === 404) setUser(null)
 
     if (response.status !== 200) return
@@ -36,20 +36,7 @@ function App() {
         <Header getData={getData} />
         {user !== null && (
           <Profile
-            avatar_url={user?.avatar_url}
-            bio={user?.bio}
-            company={user?.company}
-            email={user?.email}
-            followers={user?.followers}
-            following={user?.following}
-            hireable={user?.hireable}
-            location={user?.location}
-            login={user?.login}
-            name={user?.name}
-            public_repos={user?.public_repos}
-            twitter_username={user?.twitter_username}
-            created_at={user?.created_at}
-            blog={user?.blog}
+            {...user}
           />
         )}
       </main>
