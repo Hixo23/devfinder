@@ -101,7 +101,7 @@ export const Profile = ({avatar_url, blog, created_at, bio, company, followers, 
               }`}
             >
               <i className="fa-solid fa-building "></i>
-              <p>{twitter_username || 'No Available'}</p>
+              <p>{company || 'No Available'}</p>
             </div>
           </div>
         </div>
