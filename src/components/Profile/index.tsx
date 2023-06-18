@@ -72,36 +72,36 @@ export const Profile = (props: User) => {
           </div>
           <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center mt-8 gap-4">
             <div
-              className={`flex gap-2 items-center text-xl ${
+              className={`flex gap-2 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
                 !props.location && 'text-gray-500'
               }`}
             >
               <i className="fa-sharp fa-solid fa-location-dot"></i>
-              <span>{props.location || 'No Available'}</span>
+              <p>{props.location || 'No Available'}</p>
             </div>
             <div
-              className={`flex gap-1 items-center text-xl ${
+              className={`flex gap-1 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
                 !props.blog && 'text-gray-500'
               }`}
             >
               <i className={`fa-solid fa-link`}></i>
-              <span>{props.blog || 'No Available'}</span>
+              <p>{props.blog || 'No Available'}</p>
             </div>
             <div
-              className={`flex gap-2 items-center text-xl ${
+              className={`flex gap-2 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
                 !props.twitter_username && 'text-gray-500'
               }`}
             >
               <i className=" fa-brands fa-twitter w-[15px]"></i>
-              <span>{props.twitter_username || 'No Available'}</span>
+              <p>{props.twitter_username || 'No Available'}</p>
             </div>
             <div
-              className={`flex gap-2 items-center text-xl ${
+              className={`flex gap-2 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
                 !props.company && 'text-gray-500'
               }`}
             >
               <i className="fa-solid fa-building "></i>
-              <span>{props.twitter_username || 'No Available'}</span>
+              <p>{props.twitter_username || 'No Available'}</p>
             </div>
           </div>
         </div>
