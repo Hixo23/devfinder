@@ -4,8 +4,6 @@
 
 This is a simple app to search users from github written in react, tailwindcss
 
-## What is inside?
-
 This project uses many tools like:
 
 - [Vite](https://vitejs.dev)
