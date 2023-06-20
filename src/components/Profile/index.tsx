@@ -2,26 +2,42 @@ import { themeContext } from 'contexts/ThemeContext'
 import { useContext } from 'react'
 import type { User } from 'types'
 
-export const Profile = ({avatar_url, blog, created_at, bio, company, followers, following, login, public_repos, twitter_username, location}: User) => {
+export const Profile = ({
+  avatar_url,
+  blog,
+  created_at,
+  bio,
+  company,
+  followers,
+  following,
+  login,
+  public_repos,
+  twitter_username,
+  location
+}: User) => {
   const [themeIsDark] = useContext(themeContext)
   return (
     <div
-      className={`md:w-[600px] w-[350px] h-[500px] ${
+      className={`h-[500px] w-[350px] md:w-[600px] ${
         themeIsDark ? 'bg-slate-700' : 'bg-gray-200'
       } mx-auto rounded-lg p-2`}
     >
-      <div className="flex flex-col gap-4 w-auto m-2">
+      <div className="m-2 flex w-auto flex-col gap-4">
         <div className="flex items-center gap-2">
           <img
             src={avatar_url}
-            className="w-24 h-24 md:w-32 md:h-32 rounded-full"
+            className="h-24 w-24 rounded-full md:h-32 md:w-32"
             alt=""
           />
-          <div className="flex flex-col md:flex-row w-full justify-between">
-            <h2
-              className={`ml-2 text-blue-500`}
-            >
-             <a target='_blank' href={`https://github.com/${login}`}>@{login || 'no data'}</a>
+          <div className="flex w-full flex-col justify-between md:flex-row">
+            <h2 className={`ml-2 text-blue-500`}>
+              <a
+                target="_blank"
+                href={`https://github.com/${login}`}
+                rel="noreferrer"
+              >
+                @{login || 'no data'}
+              </a>
             </h2>
             <p
               className={`${
@@ -32,18 +48,18 @@ export const Profile = ({avatar_url, blog, created_at, bio, company, followers, 
             </p>
           </div>
         </div>
-        <div className="md:ml-32 md:px-4 md:-mt-12">
+        <div className="md:-mt-12 md:ml-32 md:px-4">
           <p
             className={`${
               themeIsDark ? 'text-gray-200' : 'text-gray-700'
-            } md:mr-4 md:text-left text-center`}
+            } text-center md:mr-4 md:text-left`}
           >
             {bio || 'No bio'}
           </p>
           <div
-            className={`md:w-96 md:-ml-2 py-2 mx-auto ${
+            className={`mx-auto py-2 md:-ml-2 md:w-96 ${
               themeIsDark ? 'bg-slate-800' : 'bg-gray-300'
-            } md:h-28 mt-12 rounded-xl flex justify-between px-4 items-center`}
+            } mt-12 flex items-center justify-between rounded-xl px-4 md:h-28`}
           >
             <div
               className={`${
@@ -70,35 +86,35 @@ export const Profile = ({avatar_url, blog, created_at, bio, company, followers, 
               <p className="text-bold text-2xl">{followers}</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center mt-8 gap-4">
+          <div className="mt-8 flex flex-col flex-wrap items-center gap-4 md:flex-row md:justify-between">
             <div
-              className={`flex gap-2 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
-                !location && 'text-gray-500'
-              }`}
+              className={`flex items-center gap-2 text-xl ${
+                themeIsDark ? 'text-white' : 'text-gray-700'
+              } ${!location && 'text-gray-500'}`}
             >
               <i className="fa-sharp fa-solid fa-location-dot"></i>
               <p>{location || 'No Available'}</p>
             </div>
             <div
-              className={`flex gap-1 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
-                !blog && 'text-gray-500'
-              }`}
+              className={`flex items-center gap-1 text-xl ${
+                themeIsDark ? 'text-white' : 'text-gray-700'
+              } ${!blog && 'text-gray-500'}`}
             >
               <i className={`fa-solid fa-link`}></i>
-              <a href={blog || ""}>{blog || 'No Available'}</a>
+              <a href={blog || ''}>{blog || 'No Available'}</a>
             </div>
             <div
-              className={`flex gap-2 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
-                !twitter_username && 'text-gray-500'
-              }`}
+              className={`flex items-center gap-2 text-xl ${
+                themeIsDark ? 'text-white' : 'text-gray-700'
+              } ${!twitter_username && 'text-gray-500'}`}
             >
               <i className=" fa-brands fa-twitter w-[15px]"></i>
               <p>{twitter_username || 'No Available'}</p>
             </div>
             <div
-              className={`flex gap-2 items-center text-xl ${themeIsDark ? 'text-white' : 'text-gray-700'} ${
-                !company && 'text-gray-500'
-              }`}
+              className={`flex items-center gap-2 text-xl ${
+                themeIsDark ? 'text-white' : 'text-gray-700'
+              } ${!company && 'text-gray-500'}`}
             >
               <i className="fa-solid fa-building "></i>
               <p>{company || 'No Available'}</p>

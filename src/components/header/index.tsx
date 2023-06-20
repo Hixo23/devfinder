@@ -10,12 +10,12 @@ export const Header = ({ getData }: Props) => {
   const [username, setUsername] = useState<string>('')
 
   const handleEnter = (e: React.KeyboardEvent) => {
-    if(e.key === "Enter") getData(username);
+    if (e.key === 'Enter') getData(username)
   }
 
   return (
-    <header className="flex w-screen flex-col h-24 justify-center mb-24">
-      <div className="flex justify-around items-center pb-12 mt-16 gap-4">
+    <header className="mb-24 flex h-24 w-screen flex-col justify-center">
+      <div className="mt-16 flex items-center justify-around gap-4 pb-12">
         <h1 className={`text-3xl ${themeIsDark ? 'text-white' : 'text-black'}`}>
           Devfinder
         </h1>
@@ -30,20 +30,26 @@ export const Header = ({ getData }: Props) => {
           )}
         </button>
       </div>
-      <div className="flex justify-center gap-2 relative items-center">
-        <input
-         onKeyDown={handleEnter}
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-          className={`w-[60%] h-10 rounded-xl px-10 py-4 md:outline-none ${
-            themeIsDark ? 'bg-slate-700 text-white' : 'bg-gray-300'
-          }`}
-          type="text"
-        />
-        <i className={`fa-solid fa-magnifying-glass absolute left-64 px-2 ${themeIsDark ? 'text-gray-200' : 'text-gray-800'}`}></i>
+      <div className="relative flex items-center justify-center gap-2">
+        <div className="relative flex items-center">
+          <input
+            onKeyDown={handleEnter}
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            className={`h-10 rounded-xl px-10 py-4 md:outline-none ${
+              themeIsDark ? 'bg-slate-700 text-white' : 'bg-gray-300'
+            }`}
+            type="text"
+          />
+          <i
+            className={`fa-solid fa-magnifying-glass absolute left-4 ${
+              themeIsDark ? 'text-gray-200' : 'text-gray-800'
+            }`}
+          ></i>
+        </div>
         <button
           onClick={() => getData(username)}
-          className="bg-blue-500 p-2 rounded-lg text-white"
+          className="rounded-lg bg-blue-500 p-2 text-white"
         >
           Search
         </button>
