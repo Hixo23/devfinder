@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    "target": "es2015",
-    "lib": [ "dom", "es2015", "es2015.iterable", "DOM.Iterable"],
+    "target": "ESNext",
+    "lib": [ "dom", "es2015", "ESNext.AsyncIterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

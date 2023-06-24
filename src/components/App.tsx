@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <themeContext.Provider value={[themeIsDark, setThemeIsDark]}>
+    <themeContext.Provider value={{ themeIsDark, setThemeIsDark }}>
       <main
         className={`${
           themeIsDark ? 'bg-slate-800' : 'bg-white'

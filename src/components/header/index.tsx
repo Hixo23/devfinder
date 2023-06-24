@@ -2,11 +2,11 @@ import { themeContext } from 'contexts/ThemeContext'
 import { useContext, useState } from 'react'
 
 interface Props {
-  getData: (name: string) => any
+  getData: (name: string) => void
 }
 
 export const Header = ({ getData }: Props) => {
-  const [themeIsDark, setThemeIsDark] = useContext(themeContext)
+  const { themeIsDark, setThemeIsDark } = useContext(themeContext)
   const [username, setUsername] = useState<string>('')
 
   const handleEnter = (e: React.KeyboardEvent) => {
