@@ -1,5 +1,3 @@
-
-
 # Github user search app
 
 This is a simple app to search users from github written in react, tailwindcss

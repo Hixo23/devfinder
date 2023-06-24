@@ -15,7 +15,7 @@ export const Profile = ({
   twitter_username,
   location
 }: User) => {
-  const [themeIsDark] = useContext(themeContext)
+  const themeIsDark = useContext(themeContext)
   return (
     <div
       className={`h-[500px] w-[350px] md:w-[600px] ${
@@ -29,7 +29,7 @@ export const Profile = ({
             className="h-24 w-24 rounded-full md:h-32 md:w-32"
             alt=""
           />
-          <div className="flex w-full flex-col justify-between md:flex-row">
+          <hgroup className="flex w-full flex-col justify-between md:flex-row">
             <h2 className={`ml-2 text-blue-500`}>
               <a
                 target="_blank"
@@ -46,7 +46,7 @@ export const Profile = ({
             >
               Joined: {new Date(created_at).toLocaleDateString()}
             </p>
-          </div>
+          </hgroup>
         </div>
         <div className="md:-mt-12 md:ml-32 md:px-4">
           <p
@@ -101,7 +101,15 @@ export const Profile = ({
               } ${!blog && 'text-gray-500'}`}
             >
               <i className={`fa-solid fa-link`}></i>
-              <a href={blog || ''}>{blog || 'No Available'}</a>
+              <a
+                href={
+                  blog?.startsWith('https://') || blog?.startsWith('http://')
+                    ? blog
+                    : `https://${blog}`
+                }
+              >
+                {blog || 'No Available'}
+              </a>
             </div>
             <div
               className={`flex items-center gap-2 text-xl ${

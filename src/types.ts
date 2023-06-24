@@ -11,4 +11,3 @@ export type User = {
   following?: number
   created_at: string
 }
-
