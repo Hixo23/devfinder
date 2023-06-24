@@ -15,7 +15,7 @@ export const Profile = ({
   twitter_username,
   location
 }: User) => {
-  const themeIsDark = useContext(themeContext)
+  const { themeIsDark } = useContext(themeContext)
   return (
     <div
       className={`h-[500px] w-[350px] md:w-[600px] ${
