@@ -34,7 +34,9 @@ export const Header = ({ getData }: Props) => {
         <div className="relative flex items-center">
           <input
             onKeyDown={handleEnter}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setUsername(e.target.value)
+            }
             value={username}
             className={`h-10 rounded-xl px-10 py-4 md:outline-none ${
               themeIsDark ? 'bg-slate-700 text-white' : 'bg-gray-300'

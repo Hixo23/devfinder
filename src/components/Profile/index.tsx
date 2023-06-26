@@ -30,13 +30,13 @@ export const Profile = ({
             alt=""
           />
           <hgroup className="flex w-full flex-col justify-between md:flex-row">
-            <h2 className={`ml-2 text-blue-500`}>
+            <h2 className={`ml-2 text-2xl text-blue-500`}>
               <a
                 target="_blank"
                 href={`https://github.com/${login}`}
                 rel="noreferrer"
               >
-                @{login || 'no data'}
+                @{login || 'Not available'}
               </a>
             </h2>
             <p
@@ -93,7 +93,7 @@ export const Profile = ({
               } ${!location && 'text-gray-500'}`}
             >
               <i className="fa-sharp fa-solid fa-location-dot"></i>
-              <p>{location || 'No Available'}</p>
+              <p>{location || 'Not Available'}</p>
             </div>
             <div
               className={`flex items-center gap-1 text-xl ${
@@ -108,7 +108,7 @@ export const Profile = ({
                     : `https://${blog}`
                 }
               >
-                {blog || 'No Available'}
+                {blog || 'Not Available'}
               </a>
             </div>
             <div
@@ -117,7 +117,7 @@ export const Profile = ({
               } ${!twitter_username && 'text-gray-500'}`}
             >
               <i className=" fa-brands fa-twitter w-[15px]"></i>
-              <p>{twitter_username || 'No Available'}</p>
+              <p>{twitter_username || 'not Available'}</p>
             </div>
             <div
               className={`flex items-center gap-2 text-xl ${
@@ -125,7 +125,7 @@ export const Profile = ({
               } ${!company && 'text-gray-500'}`}
             >
               <i className="fa-solid fa-building "></i>
-              <p>{company || 'No Available'}</p>
+              <p>{company || 'Not Available'}</p>
             </div>
           </div>
         </div>
