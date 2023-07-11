@@ -43,11 +43,11 @@ export const Header = ({ getData }: Props) => {
             }`}
             type="text"
           />
-          <i
+          <span
             className={`fa-solid fa-magnifying-glass absolute left-4 ${
               themeIsDark ? 'text-gray-200' : 'text-gray-800'
             }`}
-          ></i>
+          ></span>
         </div>
         <button
           onClick={() => getData(username)}
