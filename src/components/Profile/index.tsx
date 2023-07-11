@@ -102,6 +102,7 @@ export const Profile = ({
             >
               <i className={`fa-solid fa-link`}></i>
               <a
+                className={`${!blog && 'pointer-events-none cursor-default'}`}
                 href={
                   blog?.startsWith('https://') || blog?.startsWith('http://')
                     ? blog
@@ -117,7 +118,7 @@ export const Profile = ({
               } ${!twitter_username && 'text-gray-500'}`}
             >
               <i className=" fa-brands fa-twitter w-[15px]"></i>
-              <p>{twitter_username || 'not Available'}</p>
+              <p>{twitter_username || 'Not Available'}</p>
             </div>
             <div
               className={`flex items-center gap-2 text-xl ${

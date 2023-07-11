@@ -9,6 +9,7 @@ function App() {
   const [error, setError] = useState<boolean>(false)
 
   const getData = async (name: string) => {
+    if (name.trim() == '') return
     const response = await fetch(`https://api.github.com/users/${name}`, {
       headers: {
         'Content-Type': 'application/json'
