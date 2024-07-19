@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Header } from './header'
+import { Header } from './Header/Header'
 import { themeContext } from 'contexts/ThemeContext'
-import { Profile } from './Profile'
+import { Profile } from './Profile/Profile'
 import type { User } from 'types'
 function App() {
   const [themeIsDark, setThemeIsDark] = useState(true)
