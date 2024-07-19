@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Header } from './Header/Header'
-import { themeContext } from 'contexts/ThemeContext'
+import { ThemeProvider, useTheme } from 'contexts/ThemeContext'
 import { Profile } from './Profile/Profile'
 import type { User } from 'types'
 function App() {
-  const [themeIsDark, setThemeIsDark] = useState(true)
   const [user, setUser] = useState<User | null>(null)
   const [error, setError] = useState<boolean>(false)
+  const { themeIsDark } = useTheme()
 
   const getData = async (name: string) => {
     if (name.trim() == '') return
@@ -27,13 +27,13 @@ function App() {
   }
 
   return (
-    <themeContext.Provider value={{ themeIsDark, setThemeIsDark }}>
+    <ThemeProvider>
+      <Header getData={getData} />
       <main
         className={`${
           themeIsDark ? 'bg-slate-800' : 'bg-white'
         } h-screen w-screen font-outfit`}
       >
-        <Header getData={getData} />
         {error ? (
           <p
             className={`text-center text-4xl ${
@@ -46,7 +46,7 @@ function App() {
           <>{user !== null && <Profile {...user} />}</>
         )}
       </main>
-    </themeContext.Provider>
+    </ThemeProvider>
   )
 }
 

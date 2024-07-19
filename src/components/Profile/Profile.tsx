@@ -1,4 +1,4 @@
-import { themeContext } from 'contexts/ThemeContext'
+import { themeContext, useTheme } from 'contexts/ThemeContext'
 import { useContext } from 'react'
 import type { User } from 'types'
 
@@ -15,7 +15,7 @@ export const Profile = ({
   twitter_username,
   location
 }: User) => {
-  const { themeIsDark } = useContext(themeContext)
+  const { themeIsDark } = useTheme()
   return (
     <div
       className={`h-[500px] w-[350px] md:w-[600px] ${
