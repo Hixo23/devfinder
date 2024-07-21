@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from './Header/Header'
-import { ThemeProvider, useTheme } from 'contexts/ThemeContext'
 import { Profile } from './Profile/Profile'
+import { ThemeProvider, useTheme } from 'contexts/ThemeContext'
 import type { User } from 'types'
+
 function App() {
+  const { themeIsDark } = useTheme()
   const [user, setUser] = useState<User | null>(null)
   const [error, setError] = useState<boolean>(false)
-  const { themeIsDark } = useTheme()
 
   const getData = async (name: string) => {
     if (name.trim() == '') return
@@ -26,26 +27,30 @@ function App() {
     return setUser(json)
   }
 
+  useEffect(() => {
+    console.log(themeIsDark)
+  }, [themeIsDark])
+
   return (
     <ThemeProvider>
-      <Header getData={getData} />
-      <main
-        className={`${
-          themeIsDark ? 'bg-slate-800' : 'bg-white'
-        } h-screen w-screen font-outfit`}
-      >
-        {error ? (
-          <p
-            className={`text-center text-4xl ${
-              themeIsDark ? 'text-white' : 'text-gray-700'
-            }`}
-          >
-            User not found!
-          </p>
-        ) : (
-          <>{user !== null && <Profile {...user} />}</>
-        )}
-      </main>
+      <div className={themeIsDark ? 'dark' : ''}>
+        <main
+          className={`h-screen
+            w-screen bg-slate-200 font-outfit dark:bg-slate-800`}
+        >
+          <Header getData={getData} />
+          {error ? (
+            <p
+              className={`text-center text-4xl text-gray-700
+            dark:text-white`}
+            >
+              User not found!
+            </p>
+          ) : (
+            <>{user !== null && <Profile {...user} />}</>
+          )}
+        </main>
+      </div>
     </ThemeProvider>
   )
 }

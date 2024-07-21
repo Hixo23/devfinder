@@ -1,5 +1,3 @@
-import { themeContext, useTheme } from 'contexts/ThemeContext'
-import { useContext } from 'react'
 import type { User } from 'types'
 
 export const Profile = ({
@@ -15,12 +13,9 @@ export const Profile = ({
   twitter_username,
   location
 }: User) => {
-  const { themeIsDark } = useTheme()
   return (
     <div
-      className={`h-[500px] w-[350px] md:w-[600px] ${
-        themeIsDark ? 'bg-slate-700' : 'bg-gray-200'
-      } mx-auto rounded-lg p-2`}
+      className={`mx-auto h-[500px] w-[350px] rounded-lg  bg-gray-200 p-2 dark:bg-slate-700 md:w-[600px]`}
     >
       <div className="m-2 flex w-auto flex-col gap-4">
         <div className="flex items-center gap-2">
@@ -40,9 +35,8 @@ export const Profile = ({
               </a>
             </h2>
             <p
-              className={`${
-                themeIsDark ? 'text-gray-400' : 'text-gray-700'
-              } md:mr-4`}
+              className={`text-gray-700 dark:text-gray-400
+              md:mr-4`}
             >
               Joined: {new Date(created_at).toLocaleDateString()}
             </p>
@@ -50,37 +44,37 @@ export const Profile = ({
         </div>
         <div className="md:-mt-12 md:ml-32 md:px-4">
           <p
-            className={`${
-              themeIsDark ? 'text-gray-200' : 'text-gray-700'
-            } text-center md:mr-4 md:text-left`}
+            className={`
+            text-center text-gray-700
+             dark:text-gray-200 md:mr-4 md:text-left`}
           >
             {bio || 'No bio'}
           </p>
           <div
-            className={`mx-auto py-2 md:-ml-2 md:w-96 ${
-              themeIsDark ? 'bg-slate-800' : 'bg-gray-300'
-            } mt-12 flex items-center justify-between rounded-xl px-4 md:h-28`}
+            className={`mx-auto mt-12 flex items-center 
+               justify-between rounded-xl
+             bg-gray-300 px-4 py-2 dark:bg-slate-800 md:-ml-2 md:h-28 md:w-96`}
           >
             <div
-              className={`${
-                themeIsDark ? 'text-white' : 'text-gray-600'
-              } md:mr-4`}
+              className={`
+              text-gray-600 dark:text-white
+              md:mr-4`}
             >
               <h4>Repos</h4>
               <p className="text-bold text-2xl">{public_repos}</p>
             </div>
             <div
-              className={`${
-                themeIsDark ? 'text-white' : 'text-gray-600'
-              } md:mr-4 `}
+              className={`
+              text-gray-600 dark:text-white
+              md:mr-4 `}
             >
               <h4>Following</h4>
               <p className="text-bold text-2xl">{following}</p>
             </div>
             <div
-              className={`${
-                themeIsDark ? 'text-white' : 'text-gray-600'
-              } md:mr-4 `}
+              className={`
+                text-gray-600 dark:text-white
+               md:mr-4 `}
             >
               <h4>Followers</h4>
               <p className="text-bold text-2xl">{followers}</p>
@@ -88,17 +82,17 @@ export const Profile = ({
           </div>
           <div className="mt-8 flex flex-col flex-wrap items-center gap-4 md:flex-row md:justify-between">
             <div
-              className={`flex items-center gap-2 text-xl ${
-                themeIsDark ? 'text-white' : 'text-gray-700'
-              } ${!location && 'text-gray-500'}`}
+              className={`flex items-center gap-2 
+                text-xl  text-gray-700 dark:text-white
+               ${!location && 'text-gray-500'}`}
             >
               <i className="fa-sharp fa-solid fa-location-dot"></i>
               <p>{location || 'Not Available'}</p>
             </div>
             <div
-              className={`flex items-center gap-1 text-xl ${
-                themeIsDark ? 'text-white' : 'text-gray-700'
-              } ${!blog && 'text-gray-500'}`}
+              className={`flex items-center gap-1 text-xl text-gray-700 
+              dark:text-white
+             ${!blog && 'text-gray-500'}`}
             >
               <i className={`fa-solid fa-link`}></i>
               <a
@@ -113,17 +107,18 @@ export const Profile = ({
               </a>
             </div>
             <div
-              className={`flex items-center gap-2 text-xl ${
-                themeIsDark ? 'text-white' : 'text-gray-700'
-              } ${!twitter_username && 'text-gray-500'}`}
+              className={`flex items-center gap-2 text-xl 
+                text-gray-700 dark:text-white
+               ${!twitter_username && 'text-gray-500'}`}
             >
               <i className=" fa-brands fa-twitter w-[15px]"></i>
               <p>{twitter_username || 'Not Available'}</p>
             </div>
             <div
-              className={`flex items-center gap-2 text-xl ${
-                themeIsDark ? 'text-white' : 'text-gray-700'
-              } ${!company && 'text-gray-500'}`}
+              className={`flex items-center
+               gap-2 text-xl text-gray-700 dark:text-white ${
+                 !company && 'text-gray-500'
+               }`}
             >
               <i className="fa-solid fa-building "></i>
               <p>{company || 'Not Available'}</p>

@@ -1,17 +1,23 @@
-import { createContext, useContext, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  Dispatch,
+  SetStateAction
+} from 'react'
 
 type themeContext = {
   themeIsDark: boolean
-  setThemeIsDark: (newValue: boolean) => void
+  setThemeIsDark: Dispatch<SetStateAction<boolean>>
 }
 
 export const themeContext = createContext<themeContext>({
-  themeIsDark: false,
-  setThemeIsDark: () => undefined
+  themeIsDark: true,
+  setThemeIsDark: () => null
 })
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [themeIsDark, setThemeIsDark] = useState(true)
+  const [themeIsDark, setThemeIsDark] = useState(false)
   return (
     <themeContext.Provider value={{ themeIsDark, setThemeIsDark }}>
       {children}
