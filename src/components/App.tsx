@@ -32,26 +32,24 @@ function App() {
   }, [themeIsDark])
 
   return (
-    <ThemeProvider>
-      <div className={themeIsDark ? 'dark' : ''}>
-        <main
-          className={`h-screen
+    <div className={themeIsDark ? 'dark' : ''}>
+      <main
+        className={`h-screen
             w-screen bg-slate-200 font-outfit dark:bg-slate-800`}
-        >
-          <Header getData={getData} />
-          {error ? (
-            <p
-              className={`text-center text-4xl text-gray-700
+      >
+        <Header getData={getData} />
+        {error ? (
+          <p
+            className={`text-center text-4xl text-gray-700
             dark:text-white`}
-            >
-              User not found!
-            </p>
-          ) : (
-            <>{user !== null && <Profile {...user} />}</>
-          )}
-        </main>
-      </div>
-    </ThemeProvider>
+          >
+            User not found!
+          </p>
+        ) : (
+          <>{user !== null && <Profile {...user} />}</>
+        )}
+      </main>
+    </div>
   )
 }
 

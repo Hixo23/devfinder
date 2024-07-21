@@ -1,13 +1,8 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  Dispatch,
-  SetStateAction
-} from 'react'
+import { useLocalStorage } from 'hooks/useLocalStorage'
+import { createContext, useContext, Dispatch, SetStateAction } from 'react'
 
 type themeContext = {
-  themeIsDark: boolean
+  themeIsDark: boolean | unknown
   setThemeIsDark: Dispatch<SetStateAction<boolean>>
 }
 
@@ -17,7 +12,7 @@ export const themeContext = createContext<themeContext>({
 })
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [themeIsDark, setThemeIsDark] = useState(false)
+  const [themeIsDark, setThemeIsDark] = useLocalStorage('themeIsDark', true)
   return (
     <themeContext.Provider value={{ themeIsDark, setThemeIsDark }}>
       {children}
