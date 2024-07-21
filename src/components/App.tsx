@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Header } from './Header/Header'
 import { Profile } from './Profile/Profile'
-import { ThemeProvider, useTheme } from 'contexts/ThemeContext'
+import { useTheme } from 'contexts/ThemeContext'
 import type { User } from 'types'
 
 function App() {
@@ -26,10 +26,6 @@ function App() {
     setError(false)
     return setUser(json)
   }
-
-  useEffect(() => {
-    console.log(themeIsDark)
-  }, [themeIsDark])
 
   return (
     <div className={themeIsDark ? 'dark' : ''}>
