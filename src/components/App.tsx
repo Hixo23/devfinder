@@ -10,7 +10,7 @@ function App() {
     <main
       className={`${theme.themeIsDark && 'dark'} h-screen w-screen font-outfit`}
     >
-      <div className="h-full w-full bg-slate-200 dark:bg-slate-800">
+      <div className="size-full bg-slate-200 dark:bg-slate-800">
         <Header getData={fetchGithubUser} />
         {error && (
           <p
