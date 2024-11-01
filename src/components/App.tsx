@@ -7,30 +7,26 @@ function App() {
   const theme = useTheme()
 
   return (
-    <ThemeProvider>
-      <main
-        className={`${
-          theme.themeIsDark && 'dark'
-        } h-screen w-screen font-outfit`}
-      >
-        <div className="bg-slate-200 dark:bg-slate-800">
-          <Header getData={fetchGithubUser} />
-          {error && (
-            <p
-              className={`text-center text-4xl text-gray-700  dark:text-white
+    <main
+      className={`${theme.themeIsDark && 'dark'} h-screen w-screen font-outfit`}
+    >
+      <div className="h-full w-full bg-slate-200 dark:bg-slate-800">
+        <Header getData={fetchGithubUser} />
+        {error && (
+          <p
+            className={`text-center text-4xl text-gray-700  dark:text-white
               `}
-            >
-              User not found!
-            </p>
-          )}
-          {isLoading ? (
-            <p>Loading</p>
-          ) : (
-            <>{githubUser !== null && <Profile {...githubUser} />}</>
-          )}
-        </div>
-      </main>
-    </ThemeProvider>
+          >
+            User not found!
+          </p>
+        )}
+        {isLoading ? (
+          <p>Loading</p>
+        ) : (
+          <>{githubUser !== null && <Profile {...githubUser} />}</>
+        )}
+      </div>
+    </main>
   )
 }
 
