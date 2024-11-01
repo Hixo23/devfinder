@@ -2,7 +2,7 @@ import { useTheme } from 'contexts/ThemeContext'
 import { useState } from 'react'
 
 interface Props {
-  getData: (name: string) => void
+  getData: (name: string) => Promise<void>
 }
 
 export const Header = ({ getData }: Props) => {
@@ -18,7 +18,7 @@ export const Header = ({ getData }: Props) => {
 
   return (
     <header
-      className={`mb-24 flex h-24 w-screen flex-col justify-center bg-slate-200 
+      className={`mb-24 flex h-24 w-screen flex-col justify-center bg-slate-200
         py-24 dark:bg-slate-800
       `}
     >
@@ -39,7 +39,7 @@ export const Header = ({ getData }: Props) => {
         <div className="relative flex items-center">
           <form className="flex flex-col gap-2">
             <label
-              className={`font-medium 
+              className={`font-medium
               text-gray-700 dark:text-gray-400 md:mr-4`}
             >
               Github profile name
